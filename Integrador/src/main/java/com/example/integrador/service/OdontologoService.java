@@ -1,5 +1,6 @@
 package com.example.integrador.service;
 
+import com.example.integrador.excepcions.NotFoundException;
 import com.example.integrador.repository.irepository.IOdontologoRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.example.integrador.model.OdontologoDTO;
@@ -43,16 +44,15 @@ public class OdontologoService {
         return objectMapper.convertValue(odontolgoGuardado, OdontologoDTO.class);
     }
 
-    public OdontologoDTO buscarOdontologoPorId(Long id) throws Exception {
+    public OdontologoDTO buscarOdontologoPorId(Long id) throws NotFoundException {
         Optional<Odontologo> odontologoEncontrado = odontologoRepository.findById(id);
         OdontologoDTO odontologoDTO=null;
         if (odontologoEncontrado.isPresent()) {
             odontologoDTO=objectMapper.convertValue(odontologoEncontrado.get(),OdontologoDTO.class);
 
         }else{
-            Exception e = new Exception("No se encuentra dentista con esta id");
-            logger.error(e.getMessage());
-            throw e;
+            throw new NotFoundException("No existe un odontólogo con el id:" + id);
+
         }
         return odontologoDTO;
 
@@ -68,8 +68,10 @@ public class OdontologoService {
         return listaOdontologoDTO;
     }
 
-    public void borrarOdontologo(Long id){
-        odontologoRepository.deleteById(id);
+    public void borrarOdontologo(Long id) throws NotFoundException {
+        if(buscarOdontologoPorId(id)!=null){
+            odontologoRepository.deleteById(id);
+        }
     }
     public OdontologoDTO actualizar(OdontologoDTO odontologoDTO) {
         return guardarOdontologo(odontologoDTO);

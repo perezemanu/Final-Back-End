@@ -24,7 +24,9 @@ public class PacienteDTO {
         this.fechaIngreso = fechaIngreso;
         this.domicilio = domicilio;
     }
-
     public PacienteDTO() {
+    }
+
+    public <T> PacienteDTO(String julian, String rios, String s, Object o, T convertValue) {
     }
 }

@@ -28,9 +28,9 @@ class OdontologoTest {
     void actualizarOdontologo()  throws ChangeSetPersister.NotFoundException {
         OdontologoDTO odontologoCreado = odontologoService.guardarOdontologo(new OdontologoDTO("Milena","Sandoval",687684));
 
-        odontologoCreado.setApellido("Sandoval");
+        odontologoCreado.setApellido("Lopez");
         odontologoService.guardarOdontologo(odontologoCreado);
 
-        Assertions.assertTrue(odontologoCreado.getApellido() == "Burdiles");
+        Assertions.assertTrue(odontologoCreado.getApellido() == "Lopez");
     }
 }
