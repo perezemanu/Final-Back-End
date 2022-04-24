@@ -10,14 +10,19 @@ window.addEventListener('load', function () {
 
        //creamos un JSON que tendrá los datos de la nueva película
         const formData = {
-            id_paciente: document.querySelector('#id_paciente').value,
-            id_odontologo: document.querySelector('#id_odontologo').value,
-            fecha: document.querySelector('#fecha').value,
-            
-            
+            paciente: {
+                id: document.querySelector('#idPaciente').value,
 
+            }, 
+            
+            odontologo: {
+                id: document.querySelector('#idOdontologo').value,
+            },
+            fecha: document.querySelector('#fecha').value
+          
 
         };
+
         //invocamos utilizando la función fetch la API peliculas con el método POST que guardará
         //la película que enviaremos en formato JSON
         const url = 'http://localhost:8080/turnos';
@@ -36,12 +41,12 @@ window.addEventListener('load', function () {
                  //se agrego bien
                  let successAlert = '<div class="alert alert-success alert-dismissible">' +
                      '<button type="button" class="close" data-dismiss="alert">&times;</button>' +
-                     '<strong></strong> Paciente agregado </div>'
+                     '<strong></strong> Turno agregado </div>'
 
                  document.querySelector('#response').innerHTML = successAlert;
                  document.querySelector('#response').style.display = "block";
                  resetUploadForm();
-                //  console.log(data);
+                  console.log(formData);
 
             })
             .catch(error => {
@@ -61,10 +66,11 @@ window.addEventListener('load', function () {
 
 
     function resetUploadForm(){
-        document.querySelector('#id_paciente').value = "";
-        document.querySelector('#id_odontologo').value = "";
-         document.querySelector('#fecha').value = "";
-         
+        document.querySelector('#idPaciente').value = "";
+        document.querySelector('#idOdontologo').value = "";
+        document.querySelector('#fecha').value = "";
+       
+   
 
 
     }

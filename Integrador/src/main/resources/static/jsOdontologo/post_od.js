@@ -6,12 +6,16 @@ window.addEventListener('load', function () {
 
     //Ante un submit del formulario se ejecutará la siguiente funcion
     formulario.addEventListener('submit', function (event) {
+        event.preventDefault();
 
        //creamos un JSON que tendrá los datos de la nueva película
         const formData = {
-            nombre: document.querySelector('#nombre').value,
-            apellido: document.querySelector('#apellido').value,
-            matricula: document.querySelector('#matricula').value,
+            nombre: document.querySelector('#Nombre').value,
+            apellido: document.querySelector('#Apellido').value,
+            matricula: document.querySelector('#Matricula').value
+           
+            
+
 
         };
         //invocamos utilizando la función fetch la API peliculas con el método POST que guardará
@@ -37,6 +41,7 @@ window.addEventListener('load', function () {
                  document.querySelector('#response').innerHTML = successAlert;
                  document.querySelector('#response').style.display = "block";
                  resetUploadForm();
+                //  console.log(data);
 
             })
             .catch(error => {
@@ -50,13 +55,17 @@ window.addEventListener('load', function () {
                       document.querySelector('#response').style.display = "block";
                      //se dejan todos los campos vacíos por si se quiere ingresar otra pelicula
                      resetUploadForm();})
+
+                    
     });
 
 
     function resetUploadForm(){
-        document.querySelector('#nombre').value = "";
-        document.querySelector('#apellido').value = "";
-         document.querySelector('#matricula').value = "";
+        document.querySelector('#Nombre').value = "";
+        document.querySelector('#Apellido').value = "";
+         document.querySelector('#Matricula').value = "";
+       
+
 
     }
 
@@ -64,7 +73,7 @@ window.addEventListener('load', function () {
         let pathname = window.location.pathname;
         if(pathname === "/"){
             document.querySelector(".nav .nav-item a:first").addClass("active");
-        } else if (pathname == "/listarOdontologo.html.html") {
+        } else if (pathname == "../listarOdontologos.html") {
             document.querySelector(".nav .nav-item a:last").addClass("active");
         }
     })();

@@ -53,7 +53,7 @@ window.addEventListener('load', function () {
                   '<td class=\"td_categoria\">' + turnos.odontologo.nombre+ '</td>' +
                   '<td class=\"td_categoria\">' + turnos.odontologo.apellido +  '</td>' +
                   '<td class=\"td_categoria\">' + turnos.odontologo.matricula +  '</td>' +
-                  '<td class=\"td_categoria\">' + turnos.fecha  + '</td>' 
+                  '<td class=\"td_categoria\">' + turnos.fecha  + '</td>'  +
                   
                   '<td>' + deleteButton + '</td>';
 

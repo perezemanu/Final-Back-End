@@ -2,18 +2,18 @@ window.addEventListener('load', function () {
 
     //Al cargar la pagina buscamos y obtenemos el formulario donde estarán
     //los datos que el usuario cargará de la nueva pelicula
-    const formulario = document.querySelector('#add_new_paciente');
+    const formulario = document.querySelector('#add_new_pelicula');
 
     //Ante un submit del formulario se ejecutará la siguiente funcion
     formulario.addEventListener('submit', function (event) {
-        
+        event.preventDefault();
 
        //creamos un JSON que tendrá los datos de la nueva película
         const formData = {
             nombre: document.querySelector('#Nombre').value,
             apellido: document.querySelector('#Apellido').value,
             dni: document.querySelector('#Dni').value,
-            email: document.querySelector('#Email').value,
+            email: document.querySelector('#Email').value
             
 
 
