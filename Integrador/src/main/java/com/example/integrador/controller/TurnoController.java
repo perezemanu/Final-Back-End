@@ -1,5 +1,6 @@
 package com.example.integrador.controller;
 
+import com.example.integrador.excepcions.NotFoundException;
 import com.example.integrador.model.OdontologoDTO;
 import com.example.integrador.model.PacienteDTO;
 import com.example.integrador.repository.entity.Paciente;
@@ -28,7 +29,7 @@ public class TurnoController {
     private TurnoService turnoService;
 
     @GetMapping
-    public List<Turno> listarTurnos(){
+    public List<Turno> listarTurnos() throws NotFoundException {
         return turnoService.buscarTodos();
     }
 //    @PostMapping
@@ -64,7 +65,7 @@ public ResponseEntity<Turno> registrarTurno(@RequestBody Turno turno) throws Exc
 }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> eliminar(@PathVariable Long id){
+    public ResponseEntity<String> eliminar(@PathVariable Long id) throws NotFoundException {
         ResponseEntity<String> response;
         //controlar el id
         if (turnoService.buscarPorId(id)!=null){
@@ -79,7 +80,7 @@ public ResponseEntity<Turno> registrarTurno(@RequestBody Turno turno) throws Exc
     }
 
     @PutMapping
-    public Turno actualizar(@RequestBody Turno turno){
+    public Turno actualizar(@RequestBody Turno turno) throws NotFoundException{
         return turnoService.registrarTurno(turno);
     }
 

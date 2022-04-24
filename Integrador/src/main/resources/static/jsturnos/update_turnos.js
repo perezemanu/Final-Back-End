@@ -2,7 +2,7 @@ window.addEventListener('load', function () {
 
 
     //Buscamos y obtenemos el formulario donde estan
-    //los datos que el usuario pudo haber modificado de la pelicula
+    //los datos que el usuario pudo haber modificado de la turno
     const formulario = document.querySelector('#update_paciente_form');
 
     formulario.addEventListener('submit', function (event) {
@@ -10,7 +10,7 @@ window.addEventListener('load', function () {
         let pacienteId = document.querySelector('#paciente_id').value;
 
         //creamos un JSON que tendrá los datos de la película
-        //a diferencia de una pelicula nueva en este caso enviamos el id
+        //a diferencia de una turno nueva en este caso enviamos el id
         //para poder identificarla y modificarla para no cargarla como nueva
         const formData = {
             id: document.querySelector('#paciente_id').value,
@@ -21,7 +21,7 @@ window.addEventListener('load', function () {
             
         };
 
-        //invocamos utilizando la función fetch la API peliculas con el método PUT que modificará
+        //invocamos utilizando la función fetch la API turnos con el método PUT que modificará
         //la película que enviaremos en formato JSON
         const url = 'http://localhost:8080/pacientes';
         const settings = {
@@ -37,8 +37,8 @@ window.addEventListener('load', function () {
     })
  })
 
-    //Es la funcion que se invoca cuando se hace click sobre el id de una pelicula del listado
-    //se encarga de llenar el formulario con los datos de la pelicula
+    //Es la funcion que se invoca cuando se hace click sobre el id de una turnos del listado
+    //se encarga de llenar el formulario con los datos de la turnos
     //que se desea modificar
     function findBy(id) {
           const url = 'http://localhost:8080/pacientes'+"/"+id;

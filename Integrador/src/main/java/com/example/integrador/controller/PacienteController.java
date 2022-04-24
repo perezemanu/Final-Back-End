@@ -1,5 +1,6 @@
 package com.example.integrador.controller;
 
+import com.example.integrador.excepcions.NotFoundException;
 import com.example.integrador.model.PacienteDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,16 +25,16 @@ public class PacienteController {
     }
 
     @GetMapping
-    public Set<PacienteDTO> buscarPacientes(){
+    public Set<PacienteDTO> buscarPacientes() throws NotFoundException {
         return pacienteService.buscarTodos();
     }
 
     @PostMapping
-    public PacienteDTO registrarPaciente(@RequestBody PacienteDTO paciente){
+    public PacienteDTO registrarPaciente(@RequestBody PacienteDTO paciente) throws NotFoundException{
         return pacienteService.guardar(paciente);
     }
     @PutMapping
-    public PacienteDTO actualizarPaciente(@RequestBody PacienteDTO paciente){
+    public PacienteDTO actualizarPaciente(@RequestBody PacienteDTO paciente) throws NotFoundException {
         return pacienteService.actualizar(paciente);
     }
 
