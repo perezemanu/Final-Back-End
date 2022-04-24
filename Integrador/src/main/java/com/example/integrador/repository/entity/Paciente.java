@@ -1,5 +1,6 @@
 package com.example.integrador.repository.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,23 +18,17 @@ public class Paciente {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    @Column
     private String nombre;
-    @Column
     private String apellido;
-    @Column
     private Long dni;
-    @Column
     private String email;
-    @Column
     private LocalDate fechaIngreso;
-
-
-    @OneToOne() // NO SE BORRA XQUE OTROS PACIENTES PUEDEN TENER LA MISMA DIRE, //cuidado con el lazy aca
+    @OneToOne(cascade = CascadeType.ALL) // NO SE BORRA XQUE OTROS PACIENTES PUEDEN TENER LA MISMA DIRE, //cuidado con el lazy aca
     @JoinColumn(name = "id_domicilio",referencedColumnName = "id")
     private Domicilio domicilio;
 
-    @OneToMany(mappedBy = "paciente")
+    @JsonIgnore
+    @OneToMany(mappedBy = "paciente",cascade = CascadeType.ALL)
     private Set<Turno> turnos=new HashSet<>();
 
     public Paciente() {

@@ -1,5 +1,6 @@
 package com.example.integrador.repository.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,15 +15,12 @@ import java.util.Set;
 public class Odontologo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "odontologo_seq")
-    @SequenceGenerator(name = "odontologo_seq", sequenceName = "odontologo_seq", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
-    @Column(name="nombre")
     private String nombre;
-    @Column(name="apellido")
     private String apellido;
-    @Column(name="matricula")
     private Integer matricula;
+    @JsonIgnore
     @OneToMany(mappedBy = "odontologo", cascade = CascadeType.ALL)
     private Set<Turno> turnos=new HashSet<>();
 

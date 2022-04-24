@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <title>Listado de Pacientes</title>
+    <title>Listado odontologos</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/js/get_pelicula.js"></script>
-    <script type="text/javascript" src="/js/update_pelicula.js"></script>
-    <script type="text/javascript" src="/js/delete_pelicula.js"></script>
+    <script type="text/javascript" src="/jsOdontologos/get_odontologo.js"></script>
+    <script type="text/javascript" src="/jsOdontologos/update_odontologo.js"></script>
+    <script type="text/javascript" src="/jsOdontologos/delete_odontologo.js"></script>
 </head>
 <body>
 <div class="container">
@@ -19,25 +19,24 @@
             <a class="nav-link" href="/">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/listarPacientes.html">Todos los pacientes</a>
+            <a class="nav-link" href="/listarOdontologo.html">Todos los odontologos</a>
         </li>
     </ul>
 
-    <div id="div_paciente_table">
-        <h1>Pacientes</h1>
-        <div class="row col-md-10 table-responsive">
-            <table id="pacienteTable" class="table table-striped">
+    <div id="div_pelicula_table">
+        <h1>Odontologo</h1>
+        <div class="row col-md-6 table-responsive">
+            <table id="peliculaTable" class="table table-striped">
                 <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Paciente</th>
+                    <th>Nombre</th>
                     <th>Apellido</th>
-                    <th>Dni</th>
-                    <th>Email</th>
+                    <th>matricula</th>
                     <th></th>
                 </tr>
                 </thead>
-                <tbody id="PacienteTableBody">
+                <tbody id="peliculaTableBody">
 
                 </tbody>
             </table>
@@ -46,27 +45,23 @@
     <div class="row">
         <div class="col-sm-6" style="display: none;
 											background-color:#e6fffa; padding:10px; border-radius:3px"
-             id="div_pacientes_updating">
-            <form id="update_paciente_form">
+             id="div_pelicula_updating">
+            <form id="update_pelicula_form">
                 <div class="form-group">
                     <label >Id:</label>
-                    <input type="text" class="form-control" id="paciente_id" readonly>
+                    <input type="text" class="form-control" id="odontologo_id" readonly>
                 </div>
                 <div class="form-group">
-                    <label >Nombre</label>
+                    <label >nombre:</label>
                     <input type="text" class="form-control" placeholder="nombre" id="nombre">
                 </div>
                 <div class="form-group">
-                    <label >Apellido:</label>
+                    <label >apellido:</label>
                     <input type="text" class="form-control" placeholder="apellido" id="apellido">
                 </div>
                 <div class="form-group">
-                    <label >dni</label>
-                    <input type="number" class="form-control" placeholder="dni" id="dni">
-                </div>
-                <div class="form-group">
-                    <label >email</label>
-                    <input type="text" class="form-control" placeholder="email" id="email">
+                    <label >matricula:</label>
+                    <input type="text" class="form-control" placeholder="matricula" id="matricula">
                 </div>
 
 

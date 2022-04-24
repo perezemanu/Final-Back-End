@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @Table(name="turno")
 public class Turno {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
 
     @ManyToOne
@@ -20,16 +20,17 @@ public class Turno {
     private Paciente paciente;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name ="id_odontologo",nullable = false)
     private Odontologo odontologo;
 
-
-    @Column
     private LocalDateTime fecha;
+
+
 
     public Turno() {
 
     }
+
 
 }

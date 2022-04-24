@@ -8,15 +8,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/jsturnos/delete_turno.js"></script>
-    <script type="text/javascript" src="/jsturnos/update_turnos.js"></script>
     <script type="text/javascript" src="/jsturnos/get_turno.js"></script>
+    <script type="text/javascript" src="/jsturnos/update_turnos.js"></script>
+    <script type="text/javascript" src="/jsturnos/delete_turno.js"></script>
 </head>
 <body>
 <div class="container">
     <ul class="nav nav-pills">
         <li class="nav-item">
-            <a class="nav-link" href="/">Agregar nuevo</a>
+            <a class="nav-link" href="/">Agregar nueva</a>
         </li>
         <li class="nav-item">
             <a class="nav-link" href="/listarPacientes.html">Todos los pacientes</a>
@@ -25,15 +25,19 @@
 
     <div id="div_paciente_table">
         <h1>Pacientes</h1>
-        <div class="row col-md-10 table-responsive">
-            <table id="pacienteTable" class="table table-striped">
+        <div class="row col-md-15 table-responsive">
+            <table id="turnosTable" class="table table-striped">
                 <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Paciente</th>
-                    <th>Apellido</th>
-                    <th>Dni</th>
-                    <th>Email</th>
+                    <th>Nombre Paciente</th>
+                    <th>Apellido Paciente</th>
+                    <th>Dni paciente</th>
+                    <th>Email Paciente</th>
+                    <th>Nombre Odontologo</th>
+                    <th>Apellido Odontologo</th>
+                    <th>Matricula</th>
+                    <th>Fecha y hora de la cita</th>
                     <th></th>
                 </tr>
                 </thead>

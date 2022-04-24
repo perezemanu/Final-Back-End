@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Table(name="domicilio")
 public class Domicilio {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     @Column
     private String calle;
