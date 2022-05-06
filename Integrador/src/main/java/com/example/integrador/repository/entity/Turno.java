@@ -1,5 +1,6 @@
 package com.example.integrador.repository.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,9 +8,11 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+@AllArgsConstructor
 @Entity
-@Getter @Setter
-@Table(name="turno")
+@Getter
+@Setter
+@Table(name = "turno")
 public class Turno {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

@@ -1,6 +1,7 @@
 package com.example.integrador.controller;
 
 
+import com.example.integrador.excepcions.NotFoundException;
 import com.example.integrador.model.OdontologoDTO;
 import com.example.integrador.model.PacienteDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -76,7 +77,7 @@ public class OdontologoController {
             ResponseEntity<String> response = null;
 
             if (odontologoService.buscarOdontologoPorId(id) != null) {
-                odontologoService.buscarOdontologoPorId(id);
+                odontologoService.borrarOdontologo(id);
                 response = ResponseEntity.status(HttpStatus.NO_CONTENT).body("Eliminado");
             } else {
                 response = ResponseEntity.status(HttpStatus.NOT_FOUND).build();
@@ -95,8 +96,22 @@ public class OdontologoController {
 
 
         }
+        @GetMapping("/{id}")
+        public ResponseEntity<OdontologoDTO> buscarPorId(@RequestParam Long id) throws NotFoundException {
+
+            if(odontologoService.buscarOdontologoPorId(id)!=null){
+                //encontro algo?
+                 return ResponseEntity.ok(odontologoService.buscarOdontologoPorId(id));
+
+            }else{
+                //no encontró?
+                 return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+
+            }
 
 
+
+        }
 
     }
 
